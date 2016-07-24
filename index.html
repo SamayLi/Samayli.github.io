@@ -84,8 +84,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>自定义View是Android开发过程中无法绕过的一个坎，本文不讨论具体某一个View视图是如何实现，只介绍在具体实现自定义View过程中无法避免的一些方法：onMearsure,onSizeChaged,onLayout,onDraw.<br>上述四个方法执行顺序一般是：<br>onMeasure–&gt;onSizeChanged–&gt;onLayout–&gt;onDraw</p>
-<p>##onMeasure()</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onMeasure</span> <span class="params">(<span class="keyword">int</span> widthMeasureSpec, </span></span></div><div class="line">                <span class="keyword">int</span> heightMeasureSpec)</div></pre></td></tr></table></figure>
+<h2 id="onMeasure"><a href="#onMeasure" class="headerlink" title="onMeasure()"></a>onMeasure()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onMeasure</span> <span class="params">(<span class="keyword">int</span> widthMeasureSpec, </span></span></div><div class="line">                <span class="keyword">int</span> heightMeasureSpec)</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -110,7 +109,7 @@
 <p>关于宽高的MeasureSpec时如果获得，请参看<a href="http://blog.csdn.net/guolin_blog/article/details/16330267" target="_blank" rel="external">blog</a></p>
 <p>如果重写onMeasure方法需要在测量好大小之后，执行setMeasuredDimension(width,heigth)使其生效。如果不执行该方法系统会自动执行XML中设置大小。</p>
 <p>重写这个方法的目的是，防止开发人员设置的width，height异常。保证视图可以正常显示。</p>
-<p>##onSizeChaged<br>该方法的作用是该View的大小发生的变化，才会调用这个方法。<br>他会传入4个参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onSizeChanged</span> <span class="params">(<span class="keyword">int</span> w, </span></span></div><div class="line">                <span class="keyword">int</span> h, </div><div class="line">                <span class="keyword">int</span> oldw, </div><div class="line">                <span class="keyword">int</span> oldh)</div></pre></td></tr></table></figure></p>
+<h2 id="onSizeChaged"><a href="#onSizeChaged" class="headerlink" title="onSizeChaged"></a>onSizeChaged</h2><p>该方法的作用是该View的大小发生的变化，才会调用这个方法。<br>他会传入4个参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onSizeChanged</span> <span class="params">(<span class="keyword">int</span> w, </span></span></div><div class="line">                <span class="keyword">int</span> h, </div><div class="line">                <span class="keyword">int</span> oldw, </div><div class="line">                <span class="keyword">int</span> oldh)</div></pre></td></tr></table></figure></p>
 <table>
 <thead>
 <tr>
@@ -137,7 +136,7 @@
 </tr>
 </tbody>
 </table>
-<p>##onLayout<br>该方法主要是将该View中子View放在正确的位置上，该方法通常在自定义ViewGroup中设置。</p>
+<h2 id="onLayout"><a href="#onLayout" class="headerlink" title="onLayout"></a>onLayout</h2><p>该方法主要是将该View中子View放在正确的位置上，该方法通常在自定义ViewGroup中设置。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onLayout</span> <span class="params">(<span class="keyword">boolean</span> changed, </span></span></div><div class="line">                <span class="keyword">int</span> left, </div><div class="line">                <span class="keyword">int</span> top, </div><div class="line">                <span class="keyword">int</span> right, </div><div class="line">                <span class="keyword">int</span> bottom)</div></pre></td></tr></table></figure>
 <table>
 <thead>
@@ -197,7 +196,7 @@
 </tr>
 </tbody>
 </table>
-<p>##onDraw<br>这个是自定义View中最重要的方法，它的主要作用就是在Cavans在绘制图像。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onDraw</span> <span class="params">(Canvas canvas)</span></span></div></pre></td></tr></table></figure></p>
+<h2 id="onDraw"><a href="#onDraw" class="headerlink" title="onDraw"></a>onDraw</h2><p>这个是自定义View中最重要的方法，它的主要作用就是在Cavans在绘制图像。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">onDraw</span> <span class="params">(Canvas canvas)</span></span></div></pre></td></tr></table></figure></p>
 <table>
 <thead>
 <tr>
@@ -212,11 +211,12 @@
 </tr>
 </tbody>
 </table>
+<p>本文之后将详细介绍几个自定义View的实现方法。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/24/自定义View/" data-id="cir0dgwzo0001nfeex0v8dg41" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/24/自定义View/" data-id="cir0dkmrw0001nyeesjimz5tl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -322,7 +322,7 @@ hexo deploy
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/23/在iMac中如何配置Hexo/" data-id="cir0dgwyg0000nfeebs5i4br8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/23/在iMac中如何配置Hexo/" data-id="cir0dkmrr0000nyeeeq81njtr" class="article-share-link">Share</a>
       
       
     </footer>
